@@ -1,9 +1,10 @@
 # Cookiecutter Scala
 
-This is a template for [Cookiecutter](https://github.com/audreyr/cookiecutter), a tool that creates projects from project templates. Using this template you can create project a skeleton for a simple hello world-like Scala project, with some additional bells and whistles, if needed, like:
+This is a template for [Cookiecutter](https://github.com/audreyr/cookiecutter), a tool that creates projects from project templates. Using this template you can create a working project skeleton for a simple hello world-like Scala project, with some additional bells and whistles, if needed, like:
 
 - [sbt](https://github.com/sbt/sbt) to build the project
 - [scalatest](https://github.com/scalatest/scalatest) to test the code
+- [Apache Toree](https://toree.incubator.apache.org/) to explore the code interactively in a notebook
 - [scoverage](https://github.com/scoverage/sbt-scoverage) to create code coverage reports (optional)
 - [scalariform](https://github.com/scala-ide/scalariform) to format the code (optional)
 - [json4s](https://github.com/json4s/json4s) to use JSON (optional)
@@ -97,7 +98,7 @@ hello-world/
 ```
 
 
-## Test the generated project
+## Verify the generated project
 
 For a sample project named `hello_world` using all optional libraries you can test your newly created project running this sequence of `sbt` commands (output heavily trimmed):
 
@@ -150,6 +151,39 @@ $ sbt coverageReport
 [info] Coverage reports completed
 [info] All done. Coverage was [30.00%]
 [success] Total time: 2 s, completed Jul 4, 2017 10:53:15 AM
+```
+
+```bash
+$ sbt console
+...
+
+// main functionality
+
+scala> import org.cookiecutter.scala.hello.Main
+import org.cookiecutter.scala.hello.Main
+
+scala> Main.main(Array())
+Hello World
+
+// protobuf
+
+scala> import person.Person
+import person.Person
+
+scala> val p = Person(name=Some(“Joe”))
+p: person.Person =
+name: “Joe”
+
+// json
+
+scala> import org.json4s._
+import org.json4s._
+
+scala> import org.json4s.jackson.JsonMethods._
+import org.json4s.jackson.JsonMethods._
+
+scala> val obj = parse(""" { "numbers" : [1, 2, 3, 4] } """)
+obj: org.json4s.JValue = JObject(List((numbers,JArray(List(JInt(1), JInt(2), JInt(3), JInt(4))))))
 ```
 
 This should give you a fully functional SBT-based Scala project, with some additional useful goodies if you like, that you can further modify according to your needs.
