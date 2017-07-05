@@ -44,9 +44,10 @@ hello-world/
 ├── .travis
 ├── README.md
 ├── build.sbt
-├── project
 │   ├── build.properties
 │   └── plugins.sbt
+├── notebooks
+│   └── {{cookiecutter.app_slug}}.ipynb
 └── src
     ├── main
     │   └── scala
@@ -79,6 +80,8 @@ hello-world/
 ├── .travis
 ├── README.md
 ├── build.sbt
+├── notebooks
+│   └── {{cookiecutter.app_slug}}.ipynb
 ├── project
 │   ├── build.properties
 │   ├── plugins.sbt
