@@ -175,3 +175,7 @@ if __name__ == "__main__":
         remove_file("project/scalapb.sbt")
         remove_dir("src/main/protobuf")
         remove_section("notebooks/tutorial.ipynb", "## Protobuf")
+
+    if "{{ cookiecutter.sbt_assembly_version }}" == '-':
+        remove_file("project/assembly.sbt")
+        remove_file("assembly.sbt")

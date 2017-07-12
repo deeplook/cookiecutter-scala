@@ -10,5 +10,6 @@
   "json4s_version": "3.5.2",
   "sbt_scalariform_version": "1.6.0",
   "sbt_protoc_version": "0.99.8",
-  "scalapb_compilerplugin_version": "0.6.0"
+  "scalapb_compilerplugin_version": "0.6.0",
+  "sbt_assembly_version": "0.11.2"
 }

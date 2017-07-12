@@ -4,6 +4,7 @@ This is a template for [Cookiecutter](https://github.com/audreyr/cookiecutter), 
 
 - [sbt](https://github.com/sbt/sbt) to build the project
 - [scalatest](https://github.com/scalatest/scalatest) to test the code
+- [assembly](https://github.com/sbt/sbt-assembly) to deploy fat JARs (optional)
 - [Apache Toree](https://toree.incubator.apache.org/) to explore the code interactively in a notebook
 - [scoverage](https://github.com/scoverage/sbt-scoverage) to create code coverage reports (optional)
 - [scalariform](https://github.com/scala-ide/scalariform) to format the code (optional)
@@ -78,11 +79,13 @@ $ tree hello-world/
 hello-world/
 ├── .gitignore
 ├── .travis
+├── assembly.sbt
 ├── README.md
 ├── build.sbt
 ├── notebooks
 │   └── {{cookiecutter.app_slug}}.ipynb
 ├── project
+│   ├── assembly.sbt
 │   ├── build.properties
 │   ├── plugins.sbt
 │   ├── project
@@ -154,6 +157,14 @@ $ sbt coverageReport
 [info] Coverage reports completed
 [info] All done. Coverage was [30.00%]
 [success] Total time: 2 s, completed Jul 4, 2017 10:53:15 AM
+
+$ sbt assembly
+...
+[info] Assembly up to date: /[...]/hello-world/target/scala-2.12/hello_world-assembly-0.1.0.jar
+[success] Total time: 3 s, completed Jul 12, 2017 9:03:10 PM
+
+$ java -cp /[...]/hello-world/target/scala-2.12/hello_world-assembly-0.1.0.jar org.cookiecutter.scala.hello_world.Main
+Hello World
 ```
 
 ```bash
