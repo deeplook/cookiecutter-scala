@@ -4,8 +4,8 @@ This is a template for [Cookiecutter](https://github.com/audreyr/cookiecutter), 
 
 - [sbt](https://github.com/sbt/sbt) to build the project
 - [scalatest](https://github.com/scalatest/scalatest) to test the code
-- [assembly](https://github.com/sbt/sbt-assembly) to deploy fat JARs (optional)
 - [Apache Toree](https://toree.incubator.apache.org/) to explore the code interactively in a notebook
+- [assembly](https://github.com/sbt/sbt-assembly) to deploy fat JARs (optional)
 - [scoverage](https://github.com/scoverage/sbt-scoverage) to create code coverage reports (optional)
 - [scalariform](https://github.com/scala-ide/scalariform) to format the code (optional)
 - [json4s](https://github.com/json4s/json4s) to use JSON (optional)
@@ -88,7 +88,6 @@ hello-world/
 │   ├── assembly.sbt
 │   ├── build.properties
 │   ├── plugins.sbt
-│   ├── project
 │   └── scalapb.sbt
 └── src
     ├── main
