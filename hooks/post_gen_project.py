@@ -180,10 +180,10 @@ if __name__ == "__main__":
         remove_file("project/assembly.sbt")
         remove_file("assembly.sbt")
 
-    path = "{{cookiecutter.app_name}}/src/main/resources"
+    path = "src/main/resources"
     if os.path.exists(path) and not os.listdir(path):
         remove_dir(path)
 
-    path = "{{cookiecutter.app_name}}/src/test/resources"
+    path = "src/test/resources"
     if os.path.exists(path) and not os.listdir(path):
         remove_dir(path)

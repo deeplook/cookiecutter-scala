@@ -99,6 +99,9 @@ hello-world/
     │   └── scala
     │       └── Main.scala
     └── test
+        ├── resources
+        │   ├── README.md
+        │   └── airport-codes.csv
         └── scala
             ├── MainSpec.scala
             ├── TestJson.scala
