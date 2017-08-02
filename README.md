@@ -9,6 +9,7 @@ This is a template for [Cookiecutter](https://github.com/audreyr/cookiecutter), 
 - [scoverage](https://github.com/scoverage/sbt-scoverage) to create code coverage reports (optional)
 - [scalariform](https://github.com/scala-ide/scalariform) to format the code (optional)
 - [json4s](https://github.com/json4s/json4s) to use JSON (optional)
+- [scala-csv](https://github.com/tototoshi/scala-csv) to use CSV (optional)
 - [scalapb](https://github.com/scalapb/ScalaPB) to read/write Protobuf messages (optional)
 
 Most of these are optional and will be added to a newly created project only when provinding a version number other than `-` for the respective library during project instantiation. The default version numbers are the most recent ones, but are hardwired and not dynamically looked up.
@@ -35,6 +36,7 @@ scala_version [2.12.2]:
 scalatest_version [3.0.1]:
 scoverage_version [1.5.0]: -
 json4s_version [3.5.2]: -
+scala_csv_version [1.3.4]: -
 sbt_scalariform_version [1.6.0]: -
 sbt_protoc_version [0.99.8]: -
 scalapb_compilerplugin_version [0.6.0]: -
@@ -71,6 +73,7 @@ scala_version [2.12.2]:
 scalatest_version [3.0.1]:
 scoverage_version [1.5.0]:
 json4s_version [3.5.2]:
+scala_csv_version [1.3.4]:
 sbt_scalariform_version [1.6.0]:
 sbt_protoc_version [0.99.8]:
 scalapb_compilerplugin_version [0.6.0]:
@@ -197,6 +200,22 @@ import org.json4s.jackson.JsonMethods._
 
 scala> val obj = parse(""" { "numbers" : [1, 2, 3, 4] } """)
 obj: org.json4s.JValue = JObject(List((numbers,JArray(List(JInt(1), JInt(2), JInt(3), JInt(4))))))
+
+// csv
+
+scala> import com.github.tototoshi.csv.CSVReader
+com.github.tototoshi.csv.CSVReader
+
+scala> import java.io.File
+import java.io.File
+
+scala> val reader = CSVReader.open(new File("src/test/resources/airport-codes.csv"))
+reader: com.github.tototoshi.csv.CSVReader = com.github.tototoshi.csv.CSVReader@4b2809a1
+
+scala> reader.allWithHeaders()(0)
+res2: Map[String,String] = Map(coordinates -> -74.93360138, 40.07080078, name -> Total Rf Heliport, iso_country -> US, iso_region -> US-PA, continent -> NA, local_code -> 00A, ident -> 00A, iata_code -> "", gps_code -> 00A, elevation_ft -> 11, type -> heliport, municipality -> Bensalem)
+
+// TODO: add a corresponding CSV section to the tutorial notebook
 ```
 
 This should give you a fully functional SBT-based Scala project, with some additional useful goodies if you like, that you can further modify according to your needs.

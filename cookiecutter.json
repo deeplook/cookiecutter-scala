@@ -8,6 +8,7 @@
   "scalatest_version": "3.0.1",
   "scoverage_version": "1.5.0",
   "json4s_version": "3.5.2",
+  "scala_csv_version": "1.3.4",
   "sbt_scalariform_version": "1.6.0",
   "sbt_protoc_version": "0.99.8",
   "scalapb_compilerplugin_version": "0.6.0",

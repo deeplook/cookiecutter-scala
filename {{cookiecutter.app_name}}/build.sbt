@@ -14,6 +14,9 @@ lazy val root = (project in file(".")).
       "org.json4s" %% "json4s-jackson" % "{{ cookiecutter.json4s_version }}",
       "org.json4s" %% "json4s-ext" % "{{ cookiecutter.json4s_version }}",
     {% endif %}
+    {% if cookiecutter.scala_csv_version != '-' %}
+      "com.github.tototoshi" %% "scala-csv" % "{{ cookiecutter.scala_csv_version }}",
+    {% endif %}
       "org.scalatest" %% "scalatest" % "{{ cookiecutter.scalatest_version }}" % "test"
     )
   )
